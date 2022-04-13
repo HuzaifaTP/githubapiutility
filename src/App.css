@@ -1,8 +1,9 @@
 .App {
-  height: 10em;
+  height:60em;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
 .App-logo {

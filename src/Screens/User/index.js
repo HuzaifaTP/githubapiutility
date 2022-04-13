@@ -9,7 +9,8 @@ import UserSearch from "./components/user-search";
 
 function User() {
   const [users, setUsers] = useState([]);
-  const [user, inputUser] = useState();
+  const [field, setTextField] = useState();
+  const [user, setUser] = useState();
 
   useEffect(() => {
     let arr = [];
@@ -20,8 +21,10 @@ function User() {
       });
       setUsers(arr);
     };
+    console.log(users);
     fetchUsers();
   }, []);
+
   console.log(user);
 
   return (
@@ -38,7 +41,7 @@ function User() {
         id="user_search"
         getOptionLabel={(users) => `${users}`}
         options={users}
-        sx={{ width: 300 }}
+        sx={{ width: 400 }}
         isOptionEqualToValue={(option, value) => option.users === value.users}
         noOptionsText={"No user exists"}
         renderOption={(props, users) => (
@@ -49,14 +52,17 @@ function User() {
         renderInput={(params) => (
           <TextField {...params} label="Search for a Github user" />
         )}
-        onChange={(event, value) => inputUser(value)}
+        onChange={(event, value) => {
+          setTextField(value);
+        }}
       />
       <button
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        onClick={() => setUser(field)}
       >
         Search
       </button>
-      <UserSearch username = {user}/>
+      {<UserSearch username={user} />}
     </Stack>
   );
 }

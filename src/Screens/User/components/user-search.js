@@ -2,23 +2,29 @@ import React, { useState, useEffect } from "react";
 import { API_search } from "../../../api/index";
 
 function UserSearch(props) {
-  const [userData, getUserData] = useState();
-  console.log("TRIGGERED");
+  const [dataDisplay, setDataDisplay]= useState([]);
+
 
   useEffect(() => {
     const fetchUserStats = async () => {
-      console.log("user-search",props.username)
+      console.log("user-search", props.username);
       const res = await API_search.get(
-        `/users?q=${props.username}+repos:%3E42+followers:%3E1000`
+        `/users?q=${props.username}+repos:%3E0+followers:%3E0`
       );
-      getUserData(res);
-
-      console.log(userData);
+      res.data.items.map(userName=>{
+         setDataDisplay(userName.avatar_url)
+      });
     };
+
     fetchUserStats();
   }, [props.username]);
 
-  return <>INSERT REPO INFO OF USER HERE</>;
+  return (
+  <div>
+     <img src ={dataDisplay}/>
+  </div>
+ 
+  )
 }
 
 export default UserSearch;
