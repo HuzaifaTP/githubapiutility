@@ -32,9 +32,6 @@ function User() {
       sx={{
         width: 400,
         margin: "auto",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
       }}
     >
       <Autocomplete
