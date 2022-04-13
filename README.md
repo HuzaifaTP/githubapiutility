@@ -1,8 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
-To start the project do the following in VSCode:
+## Search image of a Github User 
 
 ### 1. `npm install` 
 To install all the project dependencies
