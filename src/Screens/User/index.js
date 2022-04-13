@@ -21,11 +21,11 @@ function User() {
       });
       setUsers(arr);
     };
-    console.log(users);
+    // console.log(users);
     fetchUsers();
   }, []);
 
-  console.log(user);
+  // console.log(user);
 
   return (
     <Stack
